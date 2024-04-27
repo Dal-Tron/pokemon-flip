@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { Fragment, useState } from "react";
 import { css } from "@emotion/react";
+import { useState } from "react";
 
 import fetchGithubProfile from "./api/fetchGithubProfile";
 import fetchPokemon from "./api/fetchPokemon";
@@ -22,7 +22,7 @@ const App = () => {
   const [githubUser, updateGithubUser] = useState({
     login: "",
   });
-  const [formError, updateFormError] = useState();
+  const [formError, updateFormError] = useState("");
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -42,7 +42,7 @@ const App = () => {
   }
 
   return (
-    <Fragment>
+    <>
       <GlobalStyles />
       <div css={mainContainer}>
         <header>
@@ -58,7 +58,7 @@ const App = () => {
           handlePokemonButtonClick={handlePokemonButtonClick}
         />
       </div>
-    </Fragment>
+    </>
   );
 }
 

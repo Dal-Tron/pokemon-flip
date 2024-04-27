@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
 
 import { centeredColumn } from "./styles/grid";
 
@@ -11,7 +10,7 @@ const PokemonSpawner = ({
   hasPokemon,
   pokemon
 }) => (
-  <React.Fragment>
+  <>
     <Pokemon pokemon={pokemon} hasPokemon={hasPokemon} />
     {hasGithubUser && !hasPokemon && (
       <div css={centeredColumn}>
@@ -20,7 +19,7 @@ const PokemonSpawner = ({
         </button>
       </div>
     )}
-  </React.Fragment>
+  </>
 );
 
 export default PokemonSpawner;
