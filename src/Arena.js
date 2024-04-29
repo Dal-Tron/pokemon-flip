@@ -1,10 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import { arenaGrid, centeredColumn } from "./styles/grid";
-
 import GithubUser from "./GithubUser";
 import PokemonSpawner from "./PokemonSpawner";
+import { arenaGrid, centeredColumn } from "./styles/grid";
 
 const resetHeading = css`
   line-height: 1;

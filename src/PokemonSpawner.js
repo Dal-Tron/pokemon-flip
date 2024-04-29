@@ -1,14 +1,13 @@
 /** @jsxImportSource @emotion/react */
 
-import { centeredColumn } from "./styles/grid";
-
 import Pokemon from "./Pokemon";
+import { centeredColumn } from "./styles/grid";
 
 const PokemonSpawner = ({
   handlePokemonButtonClick,
   hasGithubUser,
   hasPokemon,
-  pokemon
+  pokemon,
 }) => (
   <>
     <Pokemon pokemon={pokemon} hasPokemon={hasPokemon} />

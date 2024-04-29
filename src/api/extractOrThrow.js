@@ -1,4 +1,4 @@
-const extractOrThrow = response => {
+const extractOrThrow = (response) => {
   if (response.ok) {
     return response.json();
   } else {

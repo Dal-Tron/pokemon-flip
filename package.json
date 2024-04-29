@@ -17,16 +17,28 @@
     "@types/node": "^20.12.7",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^28.3.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "inquirer": "^9.2.20",
+    "prettier": "^3.2.5",
     "react-scripts": "5.0.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "gc": "node src/scripts/git-commit.mjs"
+    "gc": "node src/scripts/git-commit.mjs",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "yarn lint -- --fix"
   },
   "eslintConfig": {
     "extends": "react-app"

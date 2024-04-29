@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import fetchGithubProfile from "./api/fetchGithubProfile";
 import fetchPokemon from "./api/fetchPokemon";
-
 import Arena from "./Arena";
 import GithubSearch from "./GithubSearch";
 import GlobalStyles from "./GlobalStyles";
@@ -33,13 +32,13 @@ const App = () => {
     } catch (err) {
       updateFormError("User not found.");
     }
-  }
+  };
 
   const handlePokemonButtonClick = async () => {
     // TODO: fetch random pokemon
     const result = await fetchPokemon();
     updatePokemon(result);
-  }
+  };
 
   return (
     <>
@@ -60,6 +59,6 @@ const App = () => {
       </div>
     </>
   );
-}
+};
 
 export default App;
