@@ -14,13 +14,15 @@
     "@testing-library/react": "^15.0.5",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
+    "inquirer": "^9.2.20",
     "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "gc": "node src/scripts/git-commit.mjs"
   },
   "eslintConfig": {
     "extends": "react-app"
