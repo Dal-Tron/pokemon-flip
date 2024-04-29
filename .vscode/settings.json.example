@@ -1,0 +1,51 @@
+{
+  "files.associations": {
+    "*.jsx": "javascriptreact",
+    "*.js": "javascriptreact"
+  },
+  "javascript.validate.enable": true,
+  "javascript.suggest.autoImports": true,
+  "javascript.suggestionActions.enabled": true,
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "typescript.validate.enable": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggestionActions.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.format.enable": true
+}
+
+
+// Files associations
+"files.associations": {
+"*.jsx": "javascriptreact", // Treats .jsx files as React JavaScript files.
+"*.js": "javascriptreact" // Treats .js files also as React JavaScript files, useful where JSX syntax is used within .js files.
+},
+
+// JavaScript features
+"javascript.validate.enable": true, // Enables real-time validation of JavaScript files within VS Code, providing immediate feedback on errors and warnings.
+"javascript.suggest.autoImports": true, // Automatically suggests available imports and can auto-import them as you type, streamlining coding efficiency.
+"javascript.suggestionActions.enabled": true, // Enables suggestion actions for JavaScript, including refactorings, code fixes, and more.
+"javascript.preferences.importModuleSpecifier": "relative", // Determines the style of module import paths; "relative" specifies paths that are relative to the file location.
+
+// Editor actions on save
+"editor.codeActionsOnSave": {
+"source.fixAll": "always", // Automatically fix fixable issues on save.
+"source.organizeImports": "always" // Organizes and consolidates import statements whenever a file is saved.
+},
+
+// Default formatter
+"editor.defaultFormatter": "esbenp.prettier-vscode", // Specifies the default formatter to use, here set to Prettier.
+"editor.formatOnSave": true, // Enables automatic code formatting upon saving a file, using the specified default formatter.
+
+// TypeScript features
+"typescript.validate.enable": true, // Enables real-time TypeScript validation, which checks for errors and warnings in your TypeScript code.
+"typescript.suggest.autoImports": true, // Similar to the JavaScript setting, it allows VS Code to suggest and auto-import TypeScript symbols.
+"typescript.suggestionActions.enabled": true, // Activates suggestion actions for TypeScript, enhancing developer productivity with available code actions.
+"typescript.preferences.importModuleSpecifier": "relative", // Controls how TypeScript import paths are specified, with "relative" ensuring paths are relative to the file.
+"typescript.format.enable": true // Enables formatting capabilities for TypeScript files, ensuring code style consistency across your project.
