@@ -5,6 +5,19 @@ module.exports = {
     extend: {
       fontFamily: {
         inherit: "inherit",
+        headings: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Oxygen",
+          "Ubuntu",
+          "Cantarell",
+          "Fira Sans",
+          "Droid Sans",
+          "Helvetica Neue",
+          "sans-serif",
+        ],
       },
     },
   },
