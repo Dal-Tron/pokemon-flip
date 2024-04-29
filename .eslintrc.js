@@ -25,6 +25,7 @@ module.exports = {
     "plugin:import/recommended", // Recommended import plugin rules
     "plugin:import/typescript", // Import plugin rules for TypeScript
     "plugin:jest/recommended", // Jest plugin recommended rules
+    "plugin:prettier/recommended",
   ],
 
   // ESLint settings
@@ -46,6 +47,13 @@ module.exports = {
 
   // ESLint rules
   rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        trailingComma: "es5",
+        endOfLine: "auto",
+      },
+    ],
     "no-unused-vars": "off",
     // Import rules
     "import/no-named-as-default": 0,
