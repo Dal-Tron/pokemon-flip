@@ -4,10 +4,10 @@ import { FormEvent, useState } from "react";
 
 import { Arena } from "@/components/features/Arena";
 
-import fetchGithubProfile from "./api/fetchGithubProfile";
 import fetchPokemon from "./api/fetchPokemon";
-import GithubSearch from "./GithubSearch";
-import GlobalStyles from "./GlobalStyles";
+import GithubSearch from "./components/features/GithubSearch";
+
+import "./styles/global.css";
 
 const mainContainer = css`
   margin-left: auto;
@@ -27,12 +27,12 @@ const App = () => {
   const handleFormSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    try {
-      const result = await fetchGithubProfile(event.target.githubUser.value);
-      updateGithubUser(result);
-    } catch (err) {
-      updateFormError("User not found.");
-    }
+    // try {
+    //   const result = await fetchGithubProfile(event.target.githubUser.value);
+    //   updateGithubUser(result);
+    // } catch (err) {
+    //   updateFormError("User not found.");
+    // }
   };
 
   const handlePokemonButtonClick = async () => {
@@ -43,7 +43,6 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyles />
       <div css={mainContainer}>
         <header>
           <h1>Github vs. Pokemon</h1>
@@ -52,11 +51,7 @@ const App = () => {
           handleFormSubmit={handleFormSubmit}
           formError={formError}
         />
-        <Arena
-          githubUser={githubUser}
-          pokemon={pokemon}
-          handlePokemonButtonClick={handlePokemonButtonClick}
-        />
+        <Arena />
       </div>
     </>
   );
