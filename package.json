@@ -30,13 +30,14 @@
     "inquirer": "^9.2.20",
     "prettier": "^3.2.5",
     "react-scripts": "5.0.1",
+    "react-app-rewired": "^2.2.1",
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "gc": "node src/scripts/git-commit.mjs",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "yarn lint -- --fix",

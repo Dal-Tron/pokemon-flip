@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+
+import { Arena } from "@/components/features/Arena";
 
 import fetchGithubProfile from "./api/fetchGithubProfile";
 import fetchPokemon from "./api/fetchPokemon";
-import Arena from "./Arena";
 import GithubSearch from "./GithubSearch";
 import GlobalStyles from "./GlobalStyles";
 
@@ -23,7 +24,7 @@ const App = () => {
   });
   const [formError, updateFormError] = useState("");
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
     try {

@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import GithubUser from "./GithubUser";
-import PokemonSpawner from "./PokemonSpawner";
-import { arenaGrid, centeredColumn } from "./styles/grid";
+import GithubUser from "../../GithubUser";
+import PokemonSpawner from "../../PokemonSpawner";
+import { arenaGrid, centeredColumn } from "../../styles/grid";
 
 const resetHeading = css`
   line-height: 1;
@@ -11,7 +11,7 @@ const resetHeading = css`
 `;
 
 // TODO: Implement fight script
-const Arena = ({ githubUser, handlePokemonButtonClick, pokemon }) => {
+export const Arena = ({ githubUser, handlePokemonButtonClick, pokemon }) => {
   const hasGithubUser = githubUser.login.length > 0;
   const hasPokemon = pokemon.name.length > 0;
   return (
@@ -27,5 +27,3 @@ const Arena = ({ githubUser, handlePokemonButtonClick, pokemon }) => {
     </div>
   );
 };
-
-export default Arena;
