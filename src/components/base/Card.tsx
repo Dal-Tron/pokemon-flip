@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import clsx from "clsx";
+import { ReactNode, useState } from "react";
 
 interface CardProps {
-  cardFront: React.ReactNode;
-  cardBack: React.ReactNode;
+  cardFront: ReactNode;
+  cardBack: ReactNode;
+  className?: string;
   enableFlip?: boolean;
   isFlipped?: boolean;
 }
@@ -10,6 +12,7 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({
   cardFront,
   cardBack,
+  className,
   enableFlip = false,
   isFlipped = false,
 }) => {
@@ -23,29 +26,29 @@ export const Card: React.FC<CardProps> = ({
 
   return (
     <div
-      className="relative w-full h-full cursor-pointer"
+      className={clsx("flex size-full cursor-pointer", className)}
       onClick={handleFlip}
       style={{ perspective: "1000px" }}
     >
       <div
-        className="relative w-full h-full transition-transform duration-1000 ease-in-out transform"
+        className="relative grow transition-transform duration-1000 ease-in-out transform"
         style={{
           transformStyle: "preserve-3d",
           transform: cardFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
         }}
       >
         <div
-          className="absolute w-full h-full"
+          className="absolute size-full"
           style={{ transform: "rotateY(0)", backfaceVisibility: "hidden" }}
         >
-          <div>{cardFront}</div>
+          <div className="relative size-full">{cardFront}</div>
         </div>
 
         <div
-          className="absolute w-full h-full"
+          className="absolute size-full"
           style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}
         >
-          <div>{cardBack}</div>
+          <div className="relative size-full">{cardBack}</div>
         </div>
       </div>
     </div>
