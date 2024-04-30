@@ -88,6 +88,6 @@
   /* Form elements styling */
   input,
   button {
-    @apply border border-gray-700 font-inherit text-base leading-normal py-1 px-2;
+    @apply border border-primary font-inherit text-base leading-normal py-1 px-2;
   }
 }
