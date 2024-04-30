@@ -64,7 +64,11 @@ module.exports = {
         groups: [
           "builtin",
           "external",
-          ["internal", "parent", "sibling", "index"],
+          "internal",
+          ["sibling", "parent"],
+          "index",
+          "object",
+          "type",
         ],
         pathGroups: [
           {
