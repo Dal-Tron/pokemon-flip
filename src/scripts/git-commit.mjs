@@ -61,12 +61,29 @@ inquirer
       },
       when: (answers) => answers.commitAction === "Standard Commit",
     },
+    {
+      type: "list",
+      name: "amendType",
+      message: "Do you want to edit the commit message?",
+      choices: ["Edit", "No Edit"],
+      when: (answers) => answers.commitAction === "Amend Last Commit",
+    },
+    {
+      type: "input",
+      name: "editMessage",
+      message: "Enter the new commit message:",
+      when: (answers) => answers.amendType === "Edit",
+    },
   ])
   .then((answers) => {
     let commitCommand;
 
     if (answers.commitAction === "Amend Last Commit") {
-      commitCommand = "git commit --amend --no-edit";
+      if (answers.amendType === "Edit") {
+        commitCommand = `git commit --amend -m "${answers.editMessage}"`;
+      } else {
+        commitCommand = "git commit --amend --no-edit";
+      }
     } else {
       commitCommand = `git commit -m "${answers.type}: ${answers.message}"`;
     }
