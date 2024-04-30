@@ -64,15 +64,19 @@ module.exports = {
         groups: [
           "builtin",
           "external",
-          "internal",
-          ["sibling", "parent"],
-          "index",
-          "unknown",
+          ["internal", "parent", "sibling", "index"],
         ],
+        pathGroups: [
+          {
+            pattern: "@/**",
+            group: "internal",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["react"],
         "newlines-between": "always",
         alphabetize: {
-          order: "asc", // Ascending order
-          caseInsensitive: true, // Ignore case sensitivity
+          order: "asc", // Sort in ascending order
+          caseInsensitive: true, // Sorting ignores case sensitivity
         },
       },
     ],
