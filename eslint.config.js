@@ -1,4 +1,5 @@
-// .eslintrc.js
+import enforceMockNaming from "./eslint/rules/enforceMockNaming";
+
 module.exports = {
   root: true,
 
@@ -11,7 +12,13 @@ module.exports = {
 
   // ESLint plugins
   plugins: [
-    "eslint-custom-plugin",
+    {
+      local: {
+        rules: {
+          "enforce-mock-naming": enforceMockNaming,
+        },
+      },
+    },
     "@typescript-eslint", // TypeScript plugin for ESLint
     "prettier", // Prettier plugin for consistent code style
     "import", // Plugin to support import/export syntax
@@ -98,6 +105,6 @@ module.exports = {
     ],
 
     // Custom Rules
-    "create-mock-naming/enforce-mock-naming": "error",
+    "local/enforce-mock-naming": "error",
   },
 };
