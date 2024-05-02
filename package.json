@@ -45,7 +45,8 @@
     "gc": "node src/scripts/git-commit.mjs",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "yarn lint -- --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "./scripts/link-eslint-plugin.sh"
   },
   "eslintConfig": {
     "extends": "react-app"

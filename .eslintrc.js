@@ -11,6 +11,7 @@ module.exports = {
 
   // ESLint plugins
   plugins: [
+    "eslint-custom-plugin",
     "@typescript-eslint", // TypeScript plugin for ESLint
     "prettier", // Prettier plugin for consistent code style
     "import", // Plugin to support import/export syntax
@@ -95,5 +96,8 @@ module.exports = {
         varsIgnorePattern: "^_",
       },
     ],
+
+    // Custom Rules
+    "create-mock-naming/enforce-mock-naming": "error",
   },
 };

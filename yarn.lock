@@ -4717,12 +4717,6 @@ eslint-module-utils@^2.7.4, eslint-module-utils@^2.8.0:
   dependencies:
     debug "^3.2.7"
 
-"eslint-plugin-create-mock-naming@file:eslint/eslint-plugin-create-mock-naming":
-  version "1.0.0"
-  resolved "file:eslint/eslint-plugin-create-mock-naming"
-  dependencies:
-    eslint "^8.0.0"
-
 eslint-plugin-flowtype@^8.0.3:
   version "8.0.3"
   resolved "https://registry.npmjs.org/eslint-plugin-flowtype/-/eslint-plugin-flowtype-8.0.3.tgz"
