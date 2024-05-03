@@ -1,6 +1,7 @@
 import { PokemonService } from "@/services/pokemon";
 import { usePokemonStore } from "@/stores/pokemon";
 import { useUserStore } from "@/stores/user";
+import { delay } from "@/utils/delay";
 import { normalizePokemonData } from "@/utils/normalizePokemonData";
 import { turnUserIntoAPokemon } from "@/utils/turnUserIntoAPokemon";
 import clsx from "clsx";
@@ -8,11 +9,10 @@ import { useEffect, useState } from "react";
 import { Button } from "../base/Button";
 import PokemonCard from "./PokemonCard";
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 export const Arena = () => {
   const isUserLoading = useUserStore((state) => state.isUserLoading);
   const user = useUserStore((state) => state.user);
+  const isReplacingUser = useUserStore((state) => state.isReplacingUser);
   const userPokemon = turnUserIntoAPokemon(user);
   const [isUserFlipped, setIsUserFlipped] = useState(true);
 
@@ -28,8 +28,14 @@ export const Arena = () => {
   } = usePokemonStore((state) => state);
 
   useEffect(() => {
-    if (userPokemon) setIsUserFlipped(false);
-  }, [userPokemon]);
+    if (userPokemon?.name) setIsUserFlipped(false);
+  }, [userPokemon?.name]);
+
+  useEffect(() => {
+    if (isReplacingUser) {
+      setIsUserFlipped(true);
+    }
+  }, [isReplacingUser, setIsUserFlipped]);
 
   useEffect(() => {
     if (!userPokemon?.name) return;
