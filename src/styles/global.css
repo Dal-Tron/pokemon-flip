@@ -35,7 +35,7 @@
   h2,
   h3,
   h4 {
-    @apply font-headings text-gray-800 font-bold leading-none mb-2;
+    @apply font-headings text-gray-800 font-bold leading-none;
   }
 
   h1 {
@@ -47,7 +47,7 @@
   }
 
   h3 {
-    @apply text-2xl text-gray-800 font-bold leading-snug mb-2;
+    @apply text-2xl text-gray-800 font-bold leading-snug;
   }
 
   h4 {
