@@ -53,4 +53,19 @@ describe("normalizePokemonData", () => {
     const result = normalizePokemonData(mockApiData);
     expect(result).toEqual(expectedPokemon);
   });
+
+  it("returns default values when input data is undefined", () => {
+    const expectedPokemon = {
+      name: "",
+      image: "",
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      speed: 0,
+      types: [],
+    };
+
+    const result = normalizePokemonData(undefined);
+    expect(result).toEqual(expectedPokemon);
+  });
 });
