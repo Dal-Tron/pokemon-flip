@@ -41,7 +41,7 @@
     "preinstall": "npx only-allow yarn",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "test": "react-app-rewired test --coverage",
     "eject": "react-app-rewired eject",
     "gc": "node src/scripts/git-commit.mjs",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
