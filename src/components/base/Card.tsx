@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 interface CardProps {
   cardFront: ReactNode;
@@ -17,6 +17,10 @@ export const Card: React.FC<CardProps> = ({
   isFlipped = false,
 }) => {
   const [cardFlipped, setCardFlipped] = useState(isFlipped);
+
+  useEffect(() => {
+    setCardFlipped(isFlipped);
+  }, [isFlipped]);
 
   const handleFlip = () => {
     if (enableFlip) {
