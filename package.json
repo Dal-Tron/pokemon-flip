@@ -41,7 +41,7 @@
     "preinstall": "npx only-allow yarn",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test --coverage",
+    "test": "react-app-rewired test . --coverage",
     "eject": "react-app-rewired eject",
     "gc": "node src/scripts/git-commit.mjs",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
@@ -61,6 +61,14 @@
   "jest": {
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
-    }
+    },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/serviceWorker.js",
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ]
   }
 }
