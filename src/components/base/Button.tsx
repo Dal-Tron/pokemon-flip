@@ -30,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={clsx(
         {
           "border-red-500": hasError,
-          "opacity-50 cursor-not-allowed": disabled,
+          "opacity-30 cursor-not-allowed": disabled,
         },
         "transition-opacity duration-300",
         className
