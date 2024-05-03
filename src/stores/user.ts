@@ -1,22 +1,21 @@
 import { create } from "zustand";
 
-export interface IUser {
-  avatar_url: string;
-  followers: number;
-  following: number;
-  login: string;
-  public_gists: number;
-  public_repos: number;
-}
+import { IUser } from "@/types/user";
 
 type UserStore = {
-  user: IUser | null;
+  isUserLoading: boolean;
+  setUserLoading: (loading: boolean) => void;
   setUser: (user: IUser) => void;
+  user: IUser | undefined;
 };
 
 export const useUserStore = create<UserStore>((set) => ({
-  user: null,
+  isUserLoading: false,
   setUser: (user: IUser) => {
     set({ user });
   },
+  setUserLoading: (loading: boolean) => {
+    set({ isUserLoading: loading });
+  },
+  user: undefined,
 }));
