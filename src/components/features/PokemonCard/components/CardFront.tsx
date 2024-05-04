@@ -2,7 +2,9 @@ import clsx from "clsx";
 
 import { POKEMON_TYPE_COLORS } from "@/constants/pokemon";
 import { IPokemon } from "@/types/pokemon";
+
 import { darkenHex } from "../utils/darkenHex";
+
 import { PokemonType } from "./PokemonType";
 
 export const CardFront = ({ pokemon }: { pokemon?: IPokemon }) => {

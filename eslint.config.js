@@ -1,110 +1,94 @@
-import enforceMockNaming from "./eslint/rules/enforceMockNaming";
+const enforceMockNaming = require("./eslint/rules/enforceMockNaming");
+const eslintPluginTS = require("@typescript-eslint/eslint-plugin");
+const eslintPluginPrettier = require("eslint-plugin-prettier");
+const eslintPluginImport = require("eslint-plugin-import");
+const eslintPluginJest = require("eslint-plugin-jest");
+const tsParser = require("@typescript-eslint/parser");
 
-module.exports = {
-  root: true,
-
-  // Environment settings
-  env: {
-    browser: true, // Indicates the code is running in a browser
-    node: true, // Indicates the code is running in Node.js
-    "jest/globals": true, // Jest global variables
-  },
-
-  // ESLint plugins
-  plugins: [
-    {
+module.exports = [
+  {
+    files: ["src/**/*.{js,jsx,ts,tsx}"],
+    ignores: ["node_modules", "build", ".vscode", "coverage"],
+    plugins: {
       local: {
         rules: {
           "enforce-mock-naming": enforceMockNaming,
         },
       },
+      "@typescript-eslint": eslintPluginTS,
+      prettier: eslintPluginPrettier,
+      import: eslintPluginImport,
+      jest: eslintPluginJest,
     },
-    "@typescript-eslint", // TypeScript plugin for ESLint
-    "prettier", // Prettier plugin for consistent code style
-    "import", // Plugin to support import/export syntax
-    "jest", // Jest testing plugin
-  ],
-
-  // ESLint extends
-  extends: [
-    "eslint:recommended", // Recommended ESLint rules
-    "plugin:@typescript-eslint/recommended", // Recommended rules from the TypeScript ESLint plugin
-    "plugin:prettier/recommended", // Enables eslint-plugin-prettier and eslint-config-prettier
-    "plugin:import/recommended", // Recommended import plugin rules
-    "plugin:import/typescript", // Import plugin rules for TypeScript
-    "plugin:jest/recommended", // Jest plugin recommended rules
-    "plugin:prettier/recommended",
-  ],
-
-  // ESLint settings
-  settings: {
-    "import/resolver": {
-      typescript: {
-        // Configuring TypeScript resolver
-        project: "./tsconfig.json", // Path to your TypeScript config
-      },
-    },
-  },
-
-  // Patterns to be ignored by ESLint
-  ignorePatterns: [
-    "node_modules", // Node modules directory
-    "build", // Build directory
-    ".vscode", // VSCode settings directory
-  ],
-
-  // ESLint rules
-  rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        trailingComma: "es5",
-        endOfLine: "auto",
-      },
-    ],
-    "no-unused-vars": "off",
-    // Import rules
-    "import/no-named-as-default": 0,
-    "import/no-unresolved": "error",
-    "import/order": [
-      "error",
-      {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          ["sibling", "parent"],
-          "index",
-          "object",
-          "type",
-        ],
-        pathGroups: [
-          {
-            pattern: "@/**",
-            group: "internal",
+    rules: {
+      "local/enforce-mock-naming": "error",
+      ...eslintPluginTS.configs.recommended.rules,
+      ...eslintPluginJest.configs.recommended.rules,
+      "prettier/prettier": [
+        "error",
+        {
+          trailingComma: "es5",
+          endOfLine: "auto",
+        },
+      ],
+      "no-unused-vars": "off",
+      "import/no-named-as-default": 0,
+      "import/no-unresolved": "error",
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+            "object",
+            "type",
+          ],
+          pathGroups: [
+            {
+              pattern: "@/**",
+              group: "internal",
+              position: "before",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["react"],
+          "newlines-between": "always",
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
           },
-        ],
-        pathGroupsExcludedImportTypes: ["react"],
-        "newlines-between": "always",
-        alphabetize: {
-          order: "asc", // Sort in ascending order
-          caseInsensitive: true, // Sorting ignores case sensitivity
+        },
+      ],
+      "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
+      "@typescript-eslint/no-unused-vars": [
+        1,
+        {
+          args: "all",
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+    },
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: "module",
+        ecmaFeatures: {
+          jsx: true,
+        },
+        project: "./tsconfig.json",
+      },
+    },
+    settings: {
+      "import/resolver": {
+        typescript: {
+          project: "./tsconfig.json",
         },
       },
-    ],
-
-    // TypeScript ESLint rules
-    "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
-    "@typescript-eslint/no-unused-vars": [
-      1,
-      {
-        args: "all",
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
-      },
-    ],
-
-    // Custom Rules
-    "local/enforce-mock-naming": "error",
+    },
   },
-};
+];

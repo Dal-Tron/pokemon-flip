@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import React from "react";
+import { FC } from "react";
 
 interface ButtonProps {
   ariaLabel?: string;
@@ -10,7 +10,7 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   ariaLabel,
   children,
   className,

@@ -8,8 +8,9 @@ import { delay } from "@/utils/delay";
 import { normalizePokemonData } from "@/utils/normalizePokemonData";
 import { turnUserIntoAPokemon } from "@/utils/turnUserIntoAPokemon";
 
-import PokemonCard from "./PokemonCard";
 import { Button } from "../base/Button";
+
+import PokemonCard from "./PokemonCard";
 
 export const Arena = () => {
   const isUserLoading = useUserStore((state) => state.isUserLoading);

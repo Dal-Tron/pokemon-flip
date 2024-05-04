@@ -18,10 +18,10 @@
     "@types/node": "^20.12.7",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
+    "eslint": "^9.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
@@ -44,10 +44,9 @@
     "test": "react-app-rewired test . --coverage",
     "eject": "react-app-rewired eject",
     "gc": "node src/scripts/git-commit.mjs",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint": "eslint .",
     "lint:fix": "yarn lint -- --fix",
-    "prepare": "husky",
-    "postinstall": "./scripts/link-eslint-plugin.sh"
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": "react-app"
