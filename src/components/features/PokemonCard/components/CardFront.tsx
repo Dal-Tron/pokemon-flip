@@ -1,7 +1,7 @@
-import { IPokemon } from "@/types/pokemon";
-
 import clsx from "clsx";
-import { POKEMON_TYPE_COLORS } from "../../../../constants/pokemon";
+
+import { POKEMON_TYPE_COLORS } from "@/constants/pokemon";
+import { IPokemon } from "@/types/pokemon";
 import { darkenHex } from "../utils/darkenHex";
 import { PokemonType } from "./PokemonType";
 

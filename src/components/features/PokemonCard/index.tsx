@@ -1,7 +1,8 @@
+import clsx from "clsx";
+
 import { Card } from "@/components/base/Card";
 import { IPokemon } from "@/types/pokemon";
 
-import clsx from "clsx";
 import { CardBack } from "./components/CardBack";
 import { CardFront } from "./components/CardFront";
 

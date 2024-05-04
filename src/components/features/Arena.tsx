@@ -1,13 +1,15 @@
+import clsx from "clsx";
+import { useEffect, useState } from "react";
+
 import { PokemonService } from "@/services/pokemon";
 import { usePokemonStore } from "@/stores/pokemon";
 import { useUserStore } from "@/stores/user";
 import { delay } from "@/utils/delay";
 import { normalizePokemonData } from "@/utils/normalizePokemonData";
 import { turnUserIntoAPokemon } from "@/utils/turnUserIntoAPokemon";
-import clsx from "clsx";
-import { useEffect, useState } from "react";
-import { Button } from "../base/Button";
+
 import PokemonCard from "./PokemonCard";
+import { Button } from "../base/Button";
 
 export const Arena = () => {
   const isUserLoading = useUserStore((state) => state.isUserLoading);
